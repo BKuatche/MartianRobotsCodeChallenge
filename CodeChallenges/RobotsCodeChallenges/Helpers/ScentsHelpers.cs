@@ -1,4 +1,5 @@
 ﻿using RobotsCodeChallenges.Enums;
+using RobotsCodeChallenges.Extensions;
 using RobotsCodeChallenges.Models;
 
 namespace RobotsCodeChallenges.Helpers
@@ -56,6 +57,57 @@ namespace RobotsCodeChallenges.Helpers
         public static string Scent(int x, int y, DirectionType direction)
         {
             return $"{x} {y} {direction}";
+        }
+
+        public string ScentsRunnerSimulation(string input)
+        {
+            var outcome = new List<string>();
+
+            var lines = input.Replace("\r", "")
+                           .Split('\n', StringSplitOptions.RemoveEmptyEntries)
+                           .Select(s => s.Trim())
+                           .ToList();
+
+            var maxPositions = lines[0].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            int maxX = int.Parse(maxPositions[0]);
+            int maxY = int.Parse(maxPositions[1]);
+
+            for (int i = 1; i < lines.Count; i += 2)
+            {
+                var postions = lines[i].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                int initialX = int.Parse(postions[0]);
+                int intialy = int.Parse(postions[1]);
+
+                // best pratice add check to verify if command does not exist
+                var direction = EnumExtensions.FromDescription<DirectionType>(postions[2]);
+
+                string instructions = lines[i + 1];
+
+
+                var testData = new TestData
+                {
+                    InitalX = initialX,
+                    InitalY = intialy,
+                    DirectionType = direction,
+                    MaxX = maxX,
+                    MaxY = maxY
+                };
+
+                bool lost = false;
+
+                foreach (char instruction in instructions)
+                {
+                    // best pratice add method to verify if command does not exist
+                    testData.InstructionType = EnumExtensions.FromDescription<InstructionType>(instruction.ToString());
+                    lost = ScentsRunner(testData);
+                    if (lost) break;
+                }
+
+
+                string line = $"{testData.InitalX} {testData.InitalY} {((Enum)(object)testData.DirectionType).GetDescription()}" + (lost ? " LOST" : "");
+                outcome.Add(line);
+            }
+            return string.Join(Environment.NewLine, outcome);
         }
     }
 }
