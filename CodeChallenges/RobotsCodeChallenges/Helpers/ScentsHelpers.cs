@@ -59,7 +59,7 @@ namespace RobotsCodeChallenges.Helpers
             return $"{x} {y} {direction}";
         }
 
-        public string ScentsRunnerSimulation(string input)
+        public static string ScentsRunnerSimulation(string input)
         {
             var outcome = new List<string>();
 
