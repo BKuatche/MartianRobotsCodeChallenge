@@ -7,6 +7,34 @@ namespace RobotsCodeChallenges.Tests.UnitTests
     public class PositionTests
     {
 
+        [TestCase(2, 3, 1, 0, 3, 3, TestName = "Move East (+1,0)")]
+        [TestCase(2, 3, 0, 1, 2, 4, TestName = "Move North (0,+1)")]
+        [TestCase(2, 3, 0, -1, 2, 2, TestName = "Move South (0,-1)")]
+        [TestCase(2, 3, -1, 0, 1, 3, TestName = "Move West (-1,0)")]
+        [TestCase(0, 0, 0, 0, 0, 0, TestName = "No movement (0,0)")]
+        public void GetMove_ShouldReturnCorrectPostion(
+           int initialX, int initialY, int dx, int dy,
+           int expectedX, int expectedY)
+        {
+            var (nx, ny) = PositionHelpers.GetMove(initialX, initialY, dx, dy);
+
+            Assert.That(nx, Is.EqualTo(expectedX));
+            Assert.That(ny, Is.EqualTo(expectedY));
+        }
+
+
+        [TestCase(DirectionType.North, 0, 1)]
+        [TestCase(DirectionType.East, 1, 0)]
+        [TestCase(DirectionType.South, 0, -1)]
+        [TestCase(DirectionType.West, -1, 0)]
+        public void GetStepFromDirection_ShouldReturnsCorrectPostions(DirectionType dir, int expDx, int expDy)
+        {
+            var (dx, dy) = PositionHelpers.GetStepFromDirection(dir);
+            Assert.That(dx, Is.EqualTo(expDx));
+            Assert.That(dy, Is.EqualTo(expDy));
+        }
+
+
         [Test]
         public void TurnRight_RotatesClockwise_ShouldReturnValidDirection()
         {

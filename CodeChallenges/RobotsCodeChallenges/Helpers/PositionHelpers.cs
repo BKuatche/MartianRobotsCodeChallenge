@@ -42,8 +42,8 @@ namespace RobotsCodeChallenges.Helpers
             else if (direction == DirectionType.East)
                 return (x + 1, y);
             else if (direction == DirectionType.South)
-                return (x - 1, y);
-            else return (x, y - 1);
+                return (x, y - 1);
+            else return (x - 1, y);
 
         }
     }
