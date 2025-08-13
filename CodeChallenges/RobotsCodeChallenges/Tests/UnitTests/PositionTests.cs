@@ -16,8 +16,10 @@ namespace RobotsCodeChallenges.Tests.UnitTests
            int initialX, int initialY, int dx, int dy,
            int expectedX, int expectedY)
         {
+            // Act
             var (nx, ny) = PositionHelpers.GetMove(initialX, initialY, dx, dy);
-
+            
+            //Assert
             Assert.That(nx, Is.EqualTo(expectedX));
             Assert.That(ny, Is.EqualTo(expectedY));
         }
@@ -29,7 +31,10 @@ namespace RobotsCodeChallenges.Tests.UnitTests
         [TestCase(DirectionType.West, -1, 0)]
         public void GetStepFromDirection_ShouldReturnsCorrectPostions(DirectionType dir, int expDx, int expDy)
         {
+            // Act
             var (dx, dy) = PositionHelpers.GetStepFromDirection(dir);
+          
+            //Assert
             Assert.That(dx, Is.EqualTo(expDx));
             Assert.That(dy, Is.EqualTo(expDy));
         }
@@ -47,6 +52,7 @@ namespace RobotsCodeChallenges.Tests.UnitTests
         [Test]
         public void TurnLeft_RotatesCounterClockwise_ShouldReturnValidDirection()
         {
+            //Assert
             Assert.That(PositionHelpers.TurnLeft(DirectionType.North), Is.EqualTo(DirectionType.West));
             Assert.That(PositionHelpers.TurnLeft(DirectionType.West), Is.EqualTo(DirectionType.South));
             Assert.That(PositionHelpers.TurnLeft(DirectionType.South), Is.EqualTo(DirectionType.East));

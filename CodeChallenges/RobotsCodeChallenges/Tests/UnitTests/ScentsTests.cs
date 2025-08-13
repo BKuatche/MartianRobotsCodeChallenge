@@ -33,6 +33,7 @@ namespace RobotsCodeChallenges.Tests.UnitTests
         [Test]
         public void Forward_Move_UpdatesCoordinates_WhenInsideBounds()
         {
+            // Arrange
             var data = new TestData
             {
                 InitalX = 1,
@@ -43,8 +44,10 @@ namespace RobotsCodeChallenges.Tests.UnitTests
                 MaxY = 3
             };
 
+            // Act
             bool lost = ScentsHelpers.ScentsRunner(data);
 
+            // Assert
             Assert.False(lost);
             Assert.That(data.InitalX, Is.EqualTo(1));
             Assert.That(data.InitalY, Is.EqualTo(2)); 
@@ -53,7 +56,8 @@ namespace RobotsCodeChallenges.Tests.UnitTests
         [Test]
         public void Forward_Move_SetsLostAndLeavesScent_WhenSteppingOffGrid()
         {
-            var td = new TestData
+            // Arrange
+            var data = new TestData
             {
                 InitalX = 5,
                 InitalY = 3,
@@ -63,8 +67,10 @@ namespace RobotsCodeChallenges.Tests.UnitTests
                 MaxY = 3
             };
 
-            bool lost = ScentsHelpers.ScentsRunner(td);
+            // Act 
+            bool lost = ScentsHelpers.ScentsRunner(data);
 
+            // Assert
             Assert.True(lost);
             Assert.That(ScentsHelpers.Scents.Contains("5 3 North"), Is.True);
         }
