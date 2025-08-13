@@ -1,0 +1,197 @@
+############################
+# OS / Editor cruft
+############################
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editors
+.vscode/
+.idea/
+*.sln.iml
+
+############################
+# Visual Studio / Build
+############################
+.vs/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+TestResults/
+[Aa]ppPackages/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Ll]aunchSettings.json
+
+# Publish
+**/publish/
+**/App_Data/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.generated.cs
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.obj
+*.pch
+*.pdb
+*.ipch
+*.tmp
+*.tmp_proj
+*.cache
+*.log
+
+############################
+# .NET / NuGet
+############################
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+# except build folder which can contain props/targets
+!packages/build/
+!packages/repositories.config
+
+# NuGet config
+*.nuget.props
+*.nuget.targets
+
+# Old lock files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Dotnet tools local cache
+.dotnet-tools/
+
+############################
+# Testing / Coverage / Benchmarks
+############################
+*.coverage
+*.coveragexml
+coverage*
+coverage-*.json
+coverage-*.xml
+coverage-*.info
+BenchmarkDotNet.Artifacts/
+.trx
+.nunit.xml
+
+############################
+# Analyzers / Static analysis
+############################
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Rider
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf/
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+_NCrunch_*
+
+# StyleCop
+StyleCopReport.xml
+
+# Sonar
+.sonar/
+.scannerwork/
+
+############################
+# ASP.NET / Hosting
+############################
+# IIS Express
+iisexpress/
+**/.vs/config/applicationhost.config
+
+# Azure publish profiles (often contain secrets)
+**/Properties/PublishProfiles/*.pubxml
+**/*.publishsettings
+
+############################
+# Secrets / Environment
+############################
+# .env files (keep an example tracked)
+.env
+.env.*
+!.env.example
+
+# Local appsettings overrides
+appsettings.*.local.json
+appsettings.Local.json
+secrets.json
+
+############################
+# Databases
+############################
+*.mdf
+*.ldf
+*.ndf
+*.db
+*.sqlite
+*.sqlite3
+
+############################
+# Tools / Package managers
+############################
+# Paket
+.paket/
+paket-files/
+
+# Cake
+tools/**
+!tools/packages.config
+
+# Node (for SPA or frontend in solution)
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-error.log*
+
+############################
+# Containers / Cloud
+############################
+# Local docker overrides
+docker-compose.override.yml
+**/*-override.yml
+
+############################
+# Playwright (.NET)
+############################
+**/bin/**/.playwright/
+playwright-report/
+test-results/
+
+############################
+# Misc
+############################
+*.swp
+*.bak
+*.orig
+*.rej
